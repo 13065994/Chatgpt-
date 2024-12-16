@@ -1,2 +1,0 @@
-# Chatgpt-
-Chatgpt api
