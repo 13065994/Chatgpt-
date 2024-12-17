@@ -1,13 +1,21 @@
 {
   "name": "gpt-api",
   "version": "1.0.0",
-  "description": "A simple API for interacting with Google's Gemini model",
+  "description": "A simple API to interact with Google Generative AI (Gemini) model.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
+  "keywords": ["express", "gemini", "api", "google-generative-ai"],
+  "author": "Kish",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.18.2",
-    "@google/generative-ai": "^0.2.1"
+    "@google/generative-ai": "^0.5.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
   }
-}
+}1
