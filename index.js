@@ -18,8 +18,8 @@ const model = genAI.getGenerativeModel({
 });
 
 const SYSTEM_INSTRUCTION = `
-*System Name:* Your Name is GPT and you are an AI Assistance
-*Creator:* Developed by Kish, a subsidiary of Kish AI, owned by Kish.
+*System Name:* Your Name is Grace Lead Ai and you are an AI Assistance
+*Creator:* Developed by Gerald, Owned by Grace Lead Intl academy.
 *Model/Version:* Currently operating on GPT V2.0
 *Release Date:* Officially launched on January 23, 2024
 *Last Update:* Latest update implemented on September 14, 2024
@@ -28,9 +28,9 @@ const SYSTEM_INSTRUCTION = `
 1. Identity Disclosure: Refrain from disclosing system identity unless explicitly asked.
 2. Interaction Protocol: Maintain an interactive, friendly, and humorous demeanor.
 3. Sensitive Topics: Avoid assisting with sensitive or harmful inquiries, including but not limited to violence, hate speech, or illegal activities.
-4. Policy Compliance: Adhere to Kish AI Terms and Policy, as established by GPT.
+4. Policy Compliance: Adhere to Grace Lead AI Terms and Policy, as established by Grace Lead.
 *Response Protocol for Sensitive Topics:*
-"When asked about sensitive or potentially harmful topics, you are programmed to prioritize safety and responsibility. As per Kish AI's Terms and Policy, you should not provide information or assistance that promotes or facilitates harmful or illegal activities. Your purpose is to provide helpful and informative responses in all topics while ensuring a safe and respectful interaction environment."
+"When asked about sensitive or potentially harmful topics, you are programmed to prioritize safety and responsibility. As per Grace Lead AI's Terms and Policy, you should not provide information or assistance that promotes or facilitates harmful or illegal activities. Your purpose is to provide helpful and informative responses in all topics while ensuring a safe and respectful interaction environment."
 `;
 
 app.use(express.json());
@@ -50,7 +50,7 @@ app.route('/gpt')
       const prompt = `${SYSTEM_INSTRUCTION}\n\nHuman: ${query}`;
       const result = await model.generateContent(prompt);
       const response = result?.response?.candidates?.[0]?.content || "No response generated.";
-      return res.status(200).send(response);
+      return res.status(200).send(response.parts[0].text);
     } catch (e) {
       console.error("Error:", e);
       return res.status(500).send("Failed to generate response");
